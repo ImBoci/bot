@@ -48,8 +48,8 @@ fs.readdir("./commands/", (err, files) => {
 var servers = {};
 
 bot.on("ready", () => {
-  bot.user.setPresence({ game: { name: 'Type !help', type: 0 } });
-  console.log(`Bot is ready! ${bot.user.username}`);
+  console.log('Bot has started')
+  bot.user.setActivity(`Serving ${bot.guilds.size} servers | !help`);
 
   bot.setInterval(() => {
     for(let i in bot.mutes) {
@@ -102,6 +102,21 @@ bot.on("guildMemberRemove", async member => {
   welcomechannel.send(`${member} left the server.`);
 });
 
+bot.on("guildCreate", guild => {
+  //  when the bot joins a guild.
+  console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
+  bot.user.setActivity(`Serving ${bot.guilds.size} servers | !help`);
+});
+
+bot.on("guildDelete", guild => {
+  // when the bot is removed from a guild.
+  console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
+  bot.user.setActivity(`Serving ${bot.guilds.size} servers | !help`);
+});
+
+
+
+
 bot.on("channelCreate", async channel => {
 
   console.log(`${channel.name} has been created.`)
@@ -119,6 +134,22 @@ bot.on("channelDelete", async channel => {
   sChannel.send(`**${channel.name}** has been deleted.`);
 
 });
+
+bot.on('message', message => {
+  const swearWords = [
+    "anyád",
+    "apád",
+    "kurva",
+    "cigány"
+  ];
+  if( swearWords.some(word => message.content.includes(word)) ) {
+    if(!message.member.hasPermission("ADMINISTRATOR"))
+      message.delete();
+      message.author.send(`Hey! That word has been banned, please don\'t use it!`);
+    }
+})
+
+
 
 bot.on('message', async message => {
     //Global:
@@ -145,7 +176,7 @@ bot.on("message", async message => {
         active = {};
         channel = await guild.createChannel(`${message.author.username}-${message.author.discriminator}`, 
         );
-        //channel.setParent("466554117704384514");
+        channel.setParent("466554117704384514");
         channel.overwritePermissions(guild.roles.find("name", "Guest"), {
           READ_MESSAGES: false,
           SEND_MESSAGES: false
