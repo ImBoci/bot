@@ -148,6 +148,7 @@ bot.on("message", async message => {
         channel.setParent("466554117704384514");
         channel.overwritePermissions(guild.roles.find("name", "Guest"), {
           READ_MESSAGES: false
+          SEND_MESSAGES: false
         });
         let author = message.author;
         const newChannel = new Discord.RichEmbed()
