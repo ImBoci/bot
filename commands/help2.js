@@ -64,7 +64,7 @@ exports.conf = {
 };
 
 exports.help = {
-    name: "help2",
+    name: "help",
     category: "Informations",
     usage: "!help <category>\n!help <command>"
 }
