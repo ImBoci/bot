@@ -25,5 +25,7 @@ exports.conf = {
 };
 
 module.exports.help = {
-    name: "gnome"
+    name: "gnome",
+    category: "Misc",
+    usage: "!gnome"
 }

@@ -18,6 +18,7 @@ exports.conf = {
 
 exports.help = {
     name: 'messages',
+    category: "Informations",
     description: '_',
     usage: '!messages'
   };

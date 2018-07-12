@@ -28,6 +28,7 @@ exports.conf = {
 
 exports.help = {
     name: "poll",
+    category: "Administrator",
     description: ".",
     usage: "!poll <question>"
 };

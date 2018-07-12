@@ -19,4 +19,5 @@ exports.conf = {
 
 exports.help = {
   name: 'createinvite',
+  category: "Informations",
 }

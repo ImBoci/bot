@@ -23,5 +23,7 @@ exports.conf = {
 };
 
 module.exports.help = {
-    name: "emojis"
+    name: "emojis",
+    category: "Informations",
+    usage: "!emojis"
 }

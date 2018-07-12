@@ -22,6 +22,7 @@ exports.conf = {
 
 module.exports.help = {
     name: "serverinfo",
+    category: "Informations",
     description: "Display some information about the server.",
     usage: " !serverinfo"
 }

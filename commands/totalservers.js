@@ -15,5 +15,6 @@ exports.conf = {
 
 module.exports.help = {
     name: "totalservers",
+    category: "Informations",
     usage: " !totalservers"
 }

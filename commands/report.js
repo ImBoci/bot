@@ -42,5 +42,7 @@ exports.conf = {
 };
 
 module.exports.help = {
-    name: "report"
+    name: "report",
+    category: "Misc",
+    usage: "!report <message>"
 };

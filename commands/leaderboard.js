@@ -22,5 +22,6 @@ exports.conf = {
 
 
 module.exports.help = {
-    name: "leaderboard"
+    name: "leaderboard",
+    category: "Informations",
 }

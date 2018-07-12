@@ -22,6 +22,7 @@ exports.conf = {
 
 module.exports.help = {
     name: "icon",
+    category: "Informations",
     description: "Display server's icon.",
     usage: " !icon"
 }

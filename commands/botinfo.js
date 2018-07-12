@@ -24,6 +24,7 @@ exports.conf = {
 
 module.exports.help = {
     name: "botinfo",
+    category: "Informations",
     description: "Display some information about the bot.",
     usage: " !botinfo"
 }

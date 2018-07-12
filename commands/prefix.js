@@ -35,5 +35,7 @@ exports.conf = {
 };
 
 module.exports.help = {
-  name: "prefix"
+  name: "prefix",
+  category: "Administrator",
+  usage: "!prefix <prefix>"
 }

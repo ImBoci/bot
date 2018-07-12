@@ -47,5 +47,7 @@ exports.conf = {
 };
 
 module.exports.help = {
-    name: "pay"
+    name: "pay",
+    category: "Fun",
+    usage: "!pay <user> <amount>"
 }

@@ -22,6 +22,7 @@ exports.conf = {
 
 exports.help = {
     name: "dog",
+    category: "Fun",
     description: "Sends a random image of a dog.",
     usage: "!dog"
 };

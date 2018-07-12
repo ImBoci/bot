@@ -19,6 +19,7 @@ exports.conf = {
 
 exports.help = {
     name: 'lottery',
+    category: "Fun",
     description: 'Make a lottery.',
     usage: '!lottery'
 };

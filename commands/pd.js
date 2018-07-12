@@ -11,5 +11,7 @@ exports.conf = {
 };
 
 module.exports.help = {
-    name: "pd"
+    name: "pd",
+    category: "Fun",
+    usage: "!pd"
 }

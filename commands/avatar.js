@@ -26,7 +26,7 @@ exports.conf = {
 
 module.exports.help = {
     name: "avatar",
-    category: "Information",
+    category: "Informations",
     description: "Display your avatar.",
     usage: " !avatar"
 }

@@ -21,6 +21,7 @@ exports.conf = {
 
 module.exports.help = {
     name: "userinfo",
+    category: "Informations",
     description: "Display some information about yourself.",
     usage: " !userinfo"
 }

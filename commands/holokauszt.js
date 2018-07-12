@@ -25,5 +25,7 @@ exports.conf = {
 };
 
 module.exports.help = {
-    name: "holokauszt"
+    name: "holokauszt",
+    category: "Misc",
+    usage: "!holokauszt"
 }

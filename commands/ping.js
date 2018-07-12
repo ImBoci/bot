@@ -14,6 +14,7 @@ exports.run = (client, message) => {
   
   exports.help = {
     name: 'ping',
+    category: "Fun",
     description: 'Ping/Pong command.',
     usage: 'ping'
   };

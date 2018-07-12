@@ -33,5 +33,6 @@ exports.conf = {
 
 module.exports.help = {
     name: "dmall",
+    category: "Administrator",
     usage: " !dmall <message>"
 }

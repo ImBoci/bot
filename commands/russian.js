@@ -72,6 +72,7 @@ exports.conf = {
 
 exports.help = {
   name: 'russian',
+  category: "Fun",
   description: 'Play Russian Roulette',
   usage: 'russian <spin>. russian <load>. Russian <pull>.'
 };

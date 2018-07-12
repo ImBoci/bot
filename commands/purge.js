@@ -30,6 +30,7 @@ module.exports.run = (client, message, args) => {
 
 module.exports.help = {
     name: "purge",
+    category: "Administrator",
     description: 'Purges X amount of messages from a given channel.',
     usage: ' !purge <number>'
 }

@@ -18,6 +18,7 @@ exports.conf = {
 
 exports.help = {
   name: 'say',
+  category: "Administrator",
   description: 'Bot will repeat what you say',
   usage: '!say <something for the bot to repeat>'
 };

@@ -16,14 +16,9 @@ exports.conf = {
     aliases: [],
     permLevel: 0
 };
-  
-  exports.help = {
-    name: 'help',
-    description: 'Displays all the available commands for your permission level.',
-    usage: ' !help [command]'
-  };
 
 exports.help = {
     name: "invite",
+    category: "Informations",
     usage: "!invite"
 };

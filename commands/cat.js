@@ -27,6 +27,7 @@ exports.conf = {
 
 exports.help = {
     name: "cat",
+    category: "Fun",
     description: "Sends a random image of a cat.",
     usage: "!cat"
 };

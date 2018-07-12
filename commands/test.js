@@ -18,4 +18,6 @@ exports.conf = {
 
   exports.help = {
     name: 'test',
+    category: "Misc",
+    usage: "!test"
   };

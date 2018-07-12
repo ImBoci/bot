@@ -11,5 +11,7 @@ exports.conf = {
 };
 
 module.exports.help = {
-    name: "tits"
+    name: "tits",
+    category: "Fun",
+    usage: "!tits"
 }

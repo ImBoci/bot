@@ -36,5 +36,6 @@ exports.conf = {
 };
 
 module.exports.help = {
-  name: "level"
+  name: "level",
+  category: "Fun",
 }

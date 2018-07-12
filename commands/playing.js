@@ -17,6 +17,7 @@ exports.run = (client, msg, args) => {
   
   exports.help = {
     name: 'playing',
+    category: "Administrator",
     description: 'Changes the "Playing" status (game).',
-    usage: 'playing [game name]'
+    usage: '!playing [game name]'
   };

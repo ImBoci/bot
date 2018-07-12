@@ -134,5 +134,7 @@ exports.conf = {
 };
 
 module.exports.help = {
-    name: "fortnite"
+    name: "fortnite",
+    category: "Fun",
+    usage: "!fortnite <name> <mode> <platform>"
 }

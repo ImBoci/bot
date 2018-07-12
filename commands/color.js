@@ -25,6 +25,7 @@ exports.conf = {
 
 exports.help = {
     name: "color",
+    category: "Fun",
     description: ".",
     usage: "!color <color>"
 };

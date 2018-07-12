@@ -31,5 +31,7 @@ exports.conf = {
 };
 
 module.exports.help = {
-    name: "announcement"
+	name: "announcement",
+	category: "Administrator",
+	usage: "!announcement <message>"
 }

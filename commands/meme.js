@@ -21,5 +21,6 @@ exports.conf = {
 
 module.exports.help = {
     name: "meme",
+    category: "Fun",
     usage: " !meme"
 }
