@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 exports.run = async (bot, message, args) => {
-    let invitelink = "https://discordapp.com/oauth2/authorize?client_id=457295181398671388&scope=bot&permissions=2146958591";
+    let invitelink = "https://discordapp.com/api/oauth2/authorize?client_id=457295181398671388&permissions=8&scope=bot";
 
     const embed = new Discord.RichEmbed()
     .setColor("RANDOM")

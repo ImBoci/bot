@@ -75,6 +75,7 @@ bot.on("ready", () => {
   }, 5000)
 });
 
+
 bot.on("guildMemberAdd", async member =>{
   console.log(`${member.id} joined the server.`);
   if(member.guild.id !== serverStats.guildID) return;
@@ -83,8 +84,13 @@ bot.on("guildMemberAdd", async member =>{
   bot.channels.get(serverStats.memberCountID).setName(`Member Count : ${member.guild.members.filter(m => !m.user.bot).size}`);
   bot.channels.get(serverStats.botCountID).setName(`Bot Count : ${member.guild.members.filter(m => m.user.bot).size}`);
 
-  let welcomechannel = member.guild.channels.find(`name`, "welcome_leave");
-  welcomechannel.send(`${member} joined the server.`);
+  const welcomechannel = member.guild.channels.find('name', 'join-left')
+  let newuserjoinembed = new Discord.RichEmbed()
+      .setColor('#2EDDEA')
+      .setAuthor(member.user.tag + ` (${member.user.id})`, member.user.displayAvatarURL)
+      .addField(`User joined`, `Welcome, ${member.user.username} !`)
+      .setTimestamp()
+      return welcomechannel.send(newuserjoinembed);
 
   var role = member.guild.roles.find('name', 'Guest');
   member.addRole(role)
@@ -98,8 +104,13 @@ bot.on("guildMemberRemove", async member => {
   bot.channels.get(serverStats.memberCountID).setName(`Member Count : ${member.guild.members.filter(m => !m.user.bot).size}`);
   bot.channels.get(serverStats.botCountID).setName(`Bot Count : ${member.guild.members.filter(m => m.user.bot).size}`);  
 
-  let welcomechannel = member.guild.channels.find(`name`, "welcome_leave");
-  welcomechannel.send(`${member} left the server.`);
+  const goodbyechannel = member.guild.channels.find('name', 'join-left')
+  let newuserjoinembed = new Discord.RichEmbed()
+      .setColor('#EB3B3B')
+      .setAuthor(member.user.tag, member.user.displayAvatarURL)
+      .addField(`User left`, "** **")
+      .setTimestamp()
+      return goodbyechannel.send(newuserjoinembed);
 });
 
 bot.on("guildCreate", guild => {
@@ -113,6 +124,20 @@ bot.on("guildDelete", guild => {
   console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
   bot.user.setActivity(`Serving ${bot.guilds.size} servers | !help`);
 });
+
+
+bot.on("guildBanAdd", async member => {
+  console.log(`${member.id} got ban.`);
+
+  let modlog = bot.channels.find('name', 'mod-log');
+
+  const embed = new Discord.RichEmbed()
+    .setColor(0x00AE86)
+    .setTimestamp()
+    .setDescription(`**Action:** Ban\n**Target:** ${member}`);
+  return bot.channels.get(modlog.id).send({embed});
+});
+
 
 
 

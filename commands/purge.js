@@ -14,7 +14,7 @@ module.exports.run = (client, message, args) => {
     .setTitle("Trash")
     .setColor("RANDOM")
     .setDescription(`Deleted ${messagecount} messages.`)
-    send(message.channel, embed, {
+     send(message.channel, embed, {
       name: 'Trash',
       icon: 'https://cdn.discordapp.com/attachments/459829609203236874/466021242986692608/trash.png'
     });
