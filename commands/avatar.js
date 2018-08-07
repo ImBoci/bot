@@ -1,20 +1,25 @@
-const Discord = require("discord.js");
-const send = require("quick.hook");
+const Discord = require('discord.js');
 
-module.exports.run = async (bot, message, args) => {
-    let msg = await message.channel.send("Generating avatar...");
-    let name = message.author.username
-    let icon = message.author.AvatarURL
-
-    await message.channel.send({files: [
-        {
-            attachment: message.author.displayAvatarURL,
-            name: "avatar.png"
-        }
-    ]});
-
-    msg.delete();
-
+exports.run = (client, message, args) => {
+    if (args.join(" ") == "") {
+        let author = message.author;
+        let aimage = author.displayAvatarURL;
+        let author2 = new Discord.RichEmbed()
+            .setAuthor(`${author.username}#${author.discriminator}`) // Set author
+            .setColor("#RANDOM") // Set color (If you don't have ideas or preference, use RANDOM for random colors)
+            .setImage(aimage) // Set image in embed
+        message.channel.send(author2); // Send embed
+       //message.reply("you need mention a user for this command! Syntax: !avatar @USER");
+        return;
+    } else {
+        let user = message.mentions.users.first(); // Mentioned user
+        let image = user.displayAvatarURL; // Get image URL
+        let embed = new Discord.RichEmbed()
+            .setAuthor(`${user.username}#${user.discriminator}`) // Set author
+            .setColor("#RANDOM") // Set color (If you don't have ideas or preference, use RANDOM for random colors)
+            .setImage(image) // Set image in embed
+        message.channel.send(embed); // Send embed
+    }
 }
 
 exports.conf = {
