@@ -8,7 +8,7 @@ exports.run = async (bot, message, args, tools, con) => {
     let help = new Discord.RichEmbed()
         .setTitle(":scroll: List of Commands")
         .setColor("#7FFFD4")
-        .setDescription("• Informations\n• Fun\n• Misc\n• Administrator")
+        .setDescription("• Informations\n• Fun\n• Misc\n• Administrator\n• NSFW")
         .addField("\u200B",":information_source: Type \`!help <category>\` to get a list of commands in that category. \nExample: \`!help Informations\`");
     message.channel.send({ embed: help })
     } else {
@@ -46,14 +46,21 @@ exports.run = async (bot, message, args, tools, con) => {
                 .addField("Misc", `${bot.commands.filter(cmd => cmd.help.category === 'Misc').map(cmd => `\`${settings.prefix}${cmd.help.name}\` ➤ ${cmd.help.description}`).join("\n")}`, true)
                 .addField('\u200B', ':information_source: Type \`!help <command>\` to get a list of commands in that category. \nExample: \`!help gnome\`');
             message.channel.send({ embed: info });
-            }else if(kategoria === "Administrator", "administrator") {
+            } else if(kategoria === "Administrator", "administrator") {
                 let info = new Discord.RichEmbed()
                     .setAuthor("List of Commands")
                     .setColor("#7FFFD4")
                     .addField("Administrator", `${bot.commands.filter(cmd => cmd.help.category === 'Administrator').map(cmd => `\`${settings.prefix}${cmd.help.name}\` ➤ ${cmd.help.description}`).join("\n")}`, true)
                     .addField('\u200B', ':information_source: Type \`!help <command>\` to get a list of commands in that category. \nExample: \`!help gnome\`');
                 message.channel.send({ embed: info });
-                }
+                } else if(kategoria === "NSFW", "nsfw") {
+                    let info = new Discord.RichEmbed()
+                        .setAuthor("List of Commands")
+                        .setColor("#7FFFD4")
+                        .addField("NSFW", `${bot.commands.filter(cmd => cmd.help.category === 'NSFW').map(cmd => `\`${settings.prefix}${cmd.help.name}\` ➤ ${cmd.help.description}`).join("\n")}`, true)
+                        .addField('\u200B', ':information_source: Type \`!help <command>\` to get a list of commands in that category. \nExample: \`!help loli\`');
+                    message.channel.send({ embed: info });
+                    }
 };
 
 exports.conf = {

@@ -8,10 +8,10 @@ const send = require("quick.hook");
 module.exports.run = async (bot, message, args) => {
     //!fortnite Gipo8 solo pc
     //await message.delete();
-    let username = args[0];
+    let username = args.join(' ');
     let platform = args[2] || "pc";
     let gamemode = args[1];
-    if(gamemode != 'solo' && gamemode != 'duo' && gamemode != 'squad' && gamemode != 'lifetime') return message.reply("Usage: !fortnite <username> <mode> <platform>");
+    if(gamemode != 'solo' && gamemode != 'duo' && gamemode != 'squad' && gamemode != 'lifetime') return message.reply("Usage: !fortnite <username> <solo | duo | squad | lifetime> <pc | xb1 | psn>");
 
 
     if(!username) return message.reply("Please provide a username!")

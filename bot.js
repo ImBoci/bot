@@ -49,7 +49,7 @@ var servers = {};
 
 bot.on("ready", () => {
   console.log('Bot has started')
-  bot.user.setActivity(`Serving ${bot.guilds.size} servers | !help`);
+  bot.user.setActivity(`${bot.guilds.size} servers | !help`, {type: "WATCHING"});
 
   bot.setInterval(() => {
     for(let i in bot.mutes) {
@@ -134,7 +134,7 @@ bot.on("guildBanAdd", async member => {
   const embed = new Discord.RichEmbed()
     .setColor(0x00AE86)
     .setTimestamp()
-    .setDescription(`**Action:** Ban\n**Target:** ${member}`);
+    .setDescription(`**Action:** Ban\n**Target:** ${member.username}`);
   return bot.channels.get(modlog.id).send({embed});
 });
 
@@ -340,10 +340,17 @@ if (support) {
   });
   let prefix = prefixes[message.guild.id].prefixes;
   if(!message.content.startsWith(prefix)) return;
-  if(cooldown.has(message.author.id)){
-    message.delete();
-    return message.reply("You have to wait 5 seconds between commands!")
-  }
+  if (cooldown.has(message.author.id)) {
+    let cooldownemb = new Discord.RichEmbed()
+    .setAuthor(`${message.author.username} Cooldown..`, message.author.displayAvatarURL)
+    .setDescription(`You need to wait 5 seconds!`)
+    .setColor(`RED`)
+    .setFooter(`This message will be deleted in 5 seconds..`)
+    return message.channel.send(cooldownemb).then(message => {
+     message.delete(5000) 
+    })
+    
+    }
   if(!message.member.hasPermission("ADMINISTRATOR")){
     cooldown.add(message.author.id);
   }
