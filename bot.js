@@ -13,6 +13,7 @@ let purple = botSettings.purple;
 let cooldown = new Set();
 let cdseconds = 5;
 const db = require('quick.db');
+const talkedRecently = new Set();
 
 const serverStats = {
   guildID: '456063683685253121',
@@ -174,8 +175,6 @@ bot.on('message', message => {
     }
 })
 
-
-
 bot.on('message', async message => {
     //Global:
     db.add(`globalMessages_${message.author.id}`, 1);
@@ -201,7 +200,7 @@ bot.on("message", async message => {
         active = {};
         channel = await guild.createChannel(`${message.author.username}-${message.author.discriminator}`, 
         );
-        channel.setParent("466554117704384514");
+        channel.setParent();
         channel.overwritePermissions(guild.roles.find("name", "Guest"), {
           READ_MESSAGES: false,
           SEND_MESSAGES: false

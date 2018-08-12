@@ -1,4 +1,4 @@
-const settings = require ("../botsettings.json")
+const settings = require ("../botsettings.json");
 
 exports.run = async (client, message, args, level) => {// eslint-disable-line no-unused-vars
     if(message.author.id != settings.ownerID) return message.reply("Only the owner can use this command.");
@@ -18,7 +18,7 @@ exports.run = async (client, message, args, level) => {// eslint-disable-line no
   
   exports.help = {
     name: "reboot",
-    category: "System",
+    category: "Administrator",
     description: "Shuts down the bot. If running under PM2, bot will restart automatically.",
     usage: "!reboot"
   };
