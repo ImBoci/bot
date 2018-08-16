@@ -16,11 +16,13 @@ module.exports.run = async (bot, message, args) => {
    .addField("Name", message.guild.name, true)
    .addField("Owner", message.guild.owner.user.tag, true)
    .addField("Region", message.guild.region, true)
-   .addField("Channels", message.guild.channels.size, true)
+   .addField("Channel types", `**${message.guild.channels.filter(channel => channel.type === 'text').size}** text - **${message.guild.channels.filter(channel => channel.type === 'voice').size}** voice`, true)
    .addField("Members", message.guild.memberCount, true)
-   .addField("Humans", message.guild.memberCount - message.guild.members.filter(m => m.user.bot).size, true)
+   .addField("Last Member", Array.from(message.channel.guild.members.values()).sort((a, b) => b.joinedAt - a.joinedAt).map(m => `<@!${m.id}>`).splice(0, 1), true)
+   .addField("Humans", message.guild.memberCount - message.guild.members.filter(m => m.user.bot).size, true) 
    .addField("Bots", message.guild.members.filter(m => m.user.bot).size, true)
    .addField("Online", online.size, true)
+   .addField("Emojies", message.channel.guild.emojis.size, true)
    .addField("Roles", message.guild.roles.size, true);
    message.channel.send(serverembed);
 

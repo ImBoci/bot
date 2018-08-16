@@ -92,9 +92,6 @@ bot.on("guildMemberAdd", async member =>{
       .addField(`User joined`, `Welcome, ${member.user.username} !`)
       .setTimestamp()
       return welcomechannel.send(newuserjoinembed);
-
-  var role = member.guild.roles.find('name', 'Guest');
-  member.addRole(role)
 });
 
 bot.on("guildMemberRemove", async member => {
@@ -183,6 +180,13 @@ bot.on('message', async message => {
 });
 
 bot.on("message", async message => {
+
+  if(message.content.startsWith("Agree")) {
+    let role = message.guild.roles.find("name", "Guest");
+
+    message.member.addRole(role);
+    message.delete()
+  };
 
   if(message.author.bot) return;
   if (message.channel.type !== 'text') {
