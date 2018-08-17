@@ -181,14 +181,36 @@ bot.on('message', async message => {
 
 bot.on("message", async message => {
 
-  if(message.content.startsWith("Agree")) {
-    let role = message.guild.roles.find("name", "Guest");
+  
 
+  if(message.author.bot) return;
+
+
+  if(message.content.startsWith("Agree")) {
+    let role = message.guild.roles.find("name", "DJ");
     message.member.addRole(role);
     message.delete()
   };
 
-  if(message.author.bot) return;
+
+if(message.content.includes(":PepoDance:")) {
+  const pd = bot.emojis.find("name", "PepoDance")
+  message.delete()
+  message.channel.send(`${pd}`)
+  .then(pepo => pepo.edit(`${pd}`))
+} else if(message.content.includes(":JumpTits:")) {
+  const tt = bot.emojis.find("name", "JumpTits")
+  message.delete()
+  message.channel.send(`:JumpTits:`)
+  .then(ttt => ttt.edit(`${tt}`))
+} else if(message.content.includes(":HYPERCLAP:")) {
+  const hyper = bot.emojis.find("name", "HYPERCLAP")
+  message.delete()
+  message.channel.send(`:HYPERCLAP:`)
+  .then(hp => hp.edit(`${hyper}`))
+}
+
+
   if (message.channel.type !== 'text') {
     let active = await db.fetch(`support_${message.author.id}`);
     let guild = bot.guilds.get("456063683685253121");
@@ -361,7 +383,6 @@ if (support) {
   let messageArray = message.content.split(" ");
   let command = messageArray[0].toLowerCase();
   let args = messageArray.slice(1);
-
 
   if(!command.startsWith(prefix)) return;
 
